@@ -27,6 +27,18 @@ RSpec.describe BuyBooks do
     end
   end
 
+  describe 'you get a 10% discount on 3 different books' do
+    let(:book_list) { [1, 2, 3] }
+
+    it { is_expected.to eql 21.6 }
+
+    context 'when 3 are different and 1 is similar' do
+      let(:book_list) { [1, 2, 3, 1] }
+
+      it { is_expected.to eql 29.6 }
+    end
+  end
+
   describe '#uniq' do
     context 'when list has 2 different books' do
       subject { BuyBooks.new(book_list).uniq }

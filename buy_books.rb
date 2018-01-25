@@ -4,6 +4,7 @@
 class BuyBooks
   PRICE_PER_BOOK = 8
   DISCOUNT_FOR_2_BOOKS = 0.95
+  DISCOUNT_FOR_3_BOOKS = 0.9
 
   def initialize(book_list)
     @book_list = book_list
@@ -13,6 +14,9 @@ class BuyBooks
     case uniq
     when 2
       (uniq * PRICE_PER_BOOK * DISCOUNT_FOR_2_BOOKS) \
+      + ((@book_list.size - uniq) * PRICE_PER_BOOK)
+    when 3
+      (uniq * PRICE_PER_BOOK * DISCOUNT_FOR_3_BOOKS) \
       + ((@book_list.size - uniq) * PRICE_PER_BOOK)
     else
       @book_list.size * PRICE_PER_BOOK

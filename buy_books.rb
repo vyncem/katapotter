@@ -9,7 +9,7 @@ class BuyBooks
   end
 
   def run
-    PRICE_PER_BOOK
+    @book_list.size * PRICE_PER_BOOK
   end
 end
 

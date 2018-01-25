@@ -19,6 +19,12 @@ RSpec.describe BuyBooks do
     let(:book_list) { [1, 2] }
 
     it { is_expected.to eql 15.2 }
+
+    context 'when 2 are different and 1 is similar' do
+      let(:book_list) { [1, 2, 1] }
+
+      it { is_expected.to eql 23.2 }
+    end
   end
 
   describe '#uniq' do

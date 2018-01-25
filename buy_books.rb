@@ -12,7 +12,8 @@ class BuyBooks
   def run
     case uniq
     when 2
-      @book_list.size * PRICE_PER_BOOK * DISCOUNT_FOR_2_BOOKS
+      (uniq * PRICE_PER_BOOK * DISCOUNT_FOR_2_BOOKS) \
+      + ((@book_list.size - uniq) * PRICE_PER_BOOK)
     else
       @book_list.size * PRICE_PER_BOOK
     end

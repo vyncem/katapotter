@@ -1,7 +1,19 @@
-KataPotter Problem Description
+# KataPotter Problem Description
 
-5 books about a very English hero called Harry. pricing model One copy of any of the five books costs 8 EUR. two different books from the series, you get a 5% discount on those two books. 3 different books, you get a 10% discount. 4 different books, you get a 20% discount. all 5, you get a huge 25% discount.
+**5 books** about a very English hero called Harry.
 
-Note that if you buy, say, four books, of which 3 are different titles, you get a 10% discount on the 3 that form part of a set, but the fourth book still costs 8 EUR.
+## Pricing model
+Copies*|Discount(%)|Cost(€)
+-|-|-
+1|0|8
+2|5|15.2
+3|10|21.6
+4|20|25.6
+5|25|30
 
-Your mission is to write a piece of code to calculate the price of any conceivable shopping basket, giving as big a discount as possible.
+****different copies***
+### Note
+if you buy 4 books, 3 having different titles, you get a 10% discount on the 3 different titles, but the 4th, same title, book costs €8.
+
+## Exercise
+Your mission, should you accept it, is to write a piece of code to ***calculate the price*** of any conceivable shopping ***basket***, giving as ***big a discount as possible***.

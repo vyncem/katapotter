@@ -1,0 +1,24 @@
+name: Deploy to Linode on push
+
+on:
+  push:
+    branches:
+      - staging        # change to whatever branch you want to auto-deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.SEMA_ID_RSA }}" > ../private.key
+          sudo chmod 600 ../private.key
+          echo "${{ secrets.LINODE_HOST }}" > ~/.ssh/known_hosts
+        shell: bash
+
+      - name: Run deploy script on Linode
+        run: |
+          ssh -o StrictHostKeyChecking=yes -i ../private.key "${{ secrets.LINODE_USER }}@${{ secrets.LINODE_HOST }}" "/home/deploy/deploy_myapp.sh"
